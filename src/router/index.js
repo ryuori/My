@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/components/Home_view.vue'
 import BikeView from '@/views/BikeView.vue'
+import NameMake from '@/components/Name_make.vue'
+
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -11,6 +13,10 @@ const router = createRouter({
     {
       path: '/bike',
       component: BikeView
+    },
+    {
+      path: '/name',
+      component: NameMake
     }
   ]
 })
