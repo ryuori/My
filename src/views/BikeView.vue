@@ -5,7 +5,7 @@
   </head>
   <header id="header" class="wrapper">
     <h1 class="site-title">
-      <a><img src="@/assets/bike-view/logo.svg" alt="Profile" /></a>
+      <a><img src="@/assets/bike-view/logo.svg" alt="profile" /></a>
     </h1>
     <nav>
       <ul>
