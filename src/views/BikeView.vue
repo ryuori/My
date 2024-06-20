@@ -24,8 +24,8 @@
       <h2 class="section-title">About</h2>
       <div class="content">
         <img src="@/assets/bike-view/about.jpg" alt="" />
-        <h3 class="content-title">タイトル</h3>
-        <p>テキストテキスト</p>
+        <h3 class="content-title">小倉龍之介</h3>
+        <p>こんにちは</p>
       </div>
     </section>
 
@@ -146,7 +146,7 @@ li {
   margin-right: 30px;
 }
 #about .text {
-  text-align: left;
+  text-align: center;
 }
 
 @media screen and (max-width: 600px) {

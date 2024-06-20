@@ -13,11 +13,51 @@ function changeCharacter() {
 </script>
 
 <template>
-  <div id="app">
+  <div>
     <p class="n-title">{{ titleName }}</p>
-    <p class="n-body">{{ resName }}</p>
-    <p class="n-name">{{ name }}</p>
-    <p class="n-desu">です！！</p>
-    <button @click="changeCharacter">あだ名を決める</button>
+    <p class="n-line1">{{ resName }}</p>
+    <p class="n-line2">{{ name }}</p>
+    <p class="n-line3">です！！</p>
   </div>
+  <button @click="changeCharacter">あだ名を決める</button>
 </template>
+
+<style scoped>
+.n-title {
+  width: 100%;
+  height: auto;
+  margin: 0px;
+  padding: 30px 0px;
+  background-color: silver;
+  font-size: 2em;
+  text-align: center;
+}
+.n-line1 {
+  width: 100%;
+  height: auto;
+  margin: 0px;
+  padding: 120px 0px 10px 0px;
+  background-color: lightgrey;
+  font-size: 2em;
+  text-align: center;
+}
+.n-line2 {
+  width: 100%;
+  height: auto;
+  margin: 0px;
+  padding: 0px;
+  background-color: lightgrey;
+  font-size: 6em;
+  text-align: center;
+  color: crimson;
+}
+.n-line3 {
+  width: 100%;
+  height: auto;
+  margin: 0px;
+  padding: 0px;
+  background-color: lightgrey;
+  font-size: 2em;
+  text-align: center;
+}
+</style>

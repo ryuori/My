@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/components/Home_view.vue'
 import BikeView from '@/views/BikeView.vue'
 import NameMake from '@/components/Name_make.vue'
+import BmiCalcurator from '@/components/bmiCalcurator.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -17,6 +18,10 @@ const router = createRouter({
     {
       path: '/name',
       component: NameMake
+    },
+    {
+      path: '/bmi',
+      component: BmiCalcurator
     }
   ]
 })
