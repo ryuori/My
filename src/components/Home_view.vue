@@ -3,5 +3,5 @@ import ClockView from '@/components/clock_view.vue'
 </script>
 
 <template>
-  <ClockView />
+  <clock-view />
 </template>

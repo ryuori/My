@@ -19,7 +19,7 @@ function changeCharacter() {
     <p class="n-line2">{{ name }}</p>
     <p class="n-line3">です！！</p>
   </div>
-  <button @click="changeCharacter">あだ名を決める</button>
+  <button @click="changeCharacter" class="btn btn-primary">あだ名を決める</button>
 </template>
 
 <style scoped>

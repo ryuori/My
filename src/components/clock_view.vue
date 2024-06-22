@@ -29,13 +29,13 @@ onMounted(() => {
 .title {
   width: 100%;
   margin: 0px;
-  text-align: end;
+  text-align: center;
   font-size: 15px;
 }
 .time {
   width: 100%;
   margin: 0px;
-  text-align: end;
+  text-align: center;
   font-size: 15px;
 }
 </style>

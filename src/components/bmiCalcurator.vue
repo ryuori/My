@@ -1,8 +1,5 @@
 <script setup>
 import { ref } from 'vue'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap'
-import 'bootstrap/dist/js/bootstrap.bundle'
 
 const question = ref('身長と体重を入力してください')
 const cm = ref()
@@ -40,9 +37,9 @@ function calc() {
     <hr />
     <div class="result">
       <p v-if="bmi <= 0">-</p>
-      <p v-if="bmi < 18.5" class="p-3 mb-2 bg-success text-white">やせ</p>
-      <p v-if="bmi < 25" class="p-3 mb-2 bg-primary text-white">標準</p>
-      <p v-else class="p-3 mb-2 bg-danger text-white">肥満</p>
+      <p v-if="bmi > 0 && bmi < 18.5" class="p-3 mb-2 bg-success text-white">やせ</p>
+      <p v-if="bmi > 18.5 && bmi < 25" class="p-3 mb-2 bg-primary text-white">標準</p>
+      <p v-if="bmi > 25" class="p-3 mb-2 bg-danger text-white">肥満</p>
     </div>
   </div>
 </template>

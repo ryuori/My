@@ -3,6 +3,7 @@ import HomeView from '@/components/Home_view.vue'
 import BikeView from '@/views/BikeView.vue'
 import NameMake from '@/components/Name_make.vue'
 import BmiCalcurator from '@/components/bmiCalcurator.vue'
+import HoroScopeRanking from '@/components/HoroScopeRanking.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -22,6 +23,10 @@ const router = createRouter({
     {
       path: '/bmi',
       component: BmiCalcurator
+    },
+    {
+      path: '/ranking',
+      component: HoroScopeRanking
     }
   ]
 })
