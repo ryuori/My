@@ -1,21 +1,21 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 const title = ref('今日の星座ランキング!!')
-const best3 = ref([])
-const worst3 = ref([])
+const best3 = computed(() => horos.value.slice(0, 3))
+const worst3 = computed(() => horos.value.slice(-3))
 const horos = ref([
-  { name: 'ふたご座', path: '@/assets/images/futago.png', rank: 0 },
-  { name: 'いて座', path: '@/assets/images/ite.png', rank: 0 },
-  { name: 'かに座', path: '@/assets/images/kani.png', rank: 0 },
-  { name: 'みずがめ座', path: '@/assets/images/mizugame.png', rank: 0 },
-  { name: 'おひつじ座', path: '@/assets/images/ohitsuji.png', rank: 0 },
-  { name: 'おとめ座', path: '@/assets/images/otome.png', rank: 0 },
-  { name: 'おうし座', path: '@/assets/images/oushi.png', rank: 0 },
-  { name: 'さそり座', path: '@/assets/images/sasori.png', rank: 0 },
-  { name: 'しし座', path: '@/assets/images/shishi.png', rank: 0 },
-  { name: 'てんびん座', path: '@/assets/images/tenbin.png', rank: 0 },
-  { name: 'うお座', path: '@/assets/images/uo.png', rank: 0 },
-  { name: 'やぎ座', path: '@/assets/images/yagi.png', rank: 0 }
+  { name: 'ふたご座', path: '@/assets/images/futago.jpg', rank: 0 },
+  { name: 'いて座', path: '@/assets/images/ite.jpg', rank: 0 },
+  { name: 'かに座', path: '@/assets/images/kani.jpg', rank: 0 },
+  { name: 'みずがめ座', path: '@/assets/images/mizugame.jpg', rank: 0 },
+  { name: 'おひつじ座', path: '@/assets/images/ohitsuji.jpg', rank: 0 },
+  { name: 'おとめ座', path: '@/assets/images/otome.jpg', rank: 0 },
+  { name: 'おうし座', path: '@/assets/images/oushi.jpg', rank: 0 },
+  { name: 'さそり座', path: '@/assets/images/sasori.jpg', rank: 0 },
+  { name: 'しし座', path: '@/assets/images/shishi.jpg', rank: 0 },
+  { name: 'てんびん座', path: '@/assets/images/tenbin.jpg', rank: 0 },
+  { name: 'うお座', path: '@/assets/images/uo.jpg', rank: 0 },
+  { name: 'やぎ座', path: '@/assets/images/yagi.jpg', rank: 0 }
 ])
 
 function shuffle() {
@@ -29,15 +29,6 @@ function shuffle() {
   for (let i = 0; i < horos.value.length; i++) {
     horos.value[i].rank = i + 1
   }
-}
-
-function generateRanking() {
-  shuffle()
-  const top3 = horos.value.slice(0, 3)
-  const bottom3 = horos.value.slice(-3)
-
-  best3.value = top3.map((horo) => ({ ...horo }))
-  worst3.value = bottom3.map((horo) => ({ ...horo }))
 }
 </script>
 
@@ -67,6 +58,12 @@ function generateRanking() {
         </li>
       </ul>
     </div>
-    <button @click="generateRanking">シャッフル</button>
+    <button @click="shuffle">シャッフル</button>
   </div>
 </template>
+
+<style scoped>
+li {
+  display: inline;
+}
+</style>
