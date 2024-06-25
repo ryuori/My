@@ -1,21 +1,21 @@
 <script setup>
 import { ref, computed } from 'vue'
 const title = ref('今日の星座ランキング!!')
-const best3 = computed(() => horos.value.slice(0, 3))
-const worst3 = computed(() => horos.value.slice(-3))
+const best3 = computed(() => horos.value.slice(0, 6))
+const worst3 = computed(() => horos.value.slice(-6))
 const horos = ref([
-  { name: 'ふたご座', path: '@/assets/images/futago.jpg', rank: 0 },
-  { name: 'いて座', path: '@/assets/images/ite.jpg', rank: 0 },
-  { name: 'かに座', path: '@/assets/images/kani.jpg', rank: 0 },
-  { name: 'みずがめ座', path: '@/assets/images/mizugame.jpg', rank: 0 },
-  { name: 'おひつじ座', path: '@/assets/images/ohitsuji.jpg', rank: 0 },
-  { name: 'おとめ座', path: '@/assets/images/otome.jpg', rank: 0 },
-  { name: 'おうし座', path: '@/assets/images/oushi.jpg', rank: 0 },
-  { name: 'さそり座', path: '@/assets/images/sasori.jpg', rank: 0 },
-  { name: 'しし座', path: '@/assets/images/shishi.jpg', rank: 0 },
-  { name: 'てんびん座', path: '@/assets/images/tenbin.jpg', rank: 0 },
-  { name: 'うお座', path: '@/assets/images/uo.jpg', rank: 0 },
-  { name: 'やぎ座', path: '@/assets/images/yagi.jpg', rank: 0 }
+  { name: 'ふたご座', path: '../../public/images/futago.jpg', rank: 0 },
+  { name: 'いて座', path: '../../public/images/ite.jpg', rank: 0 },
+  { name: 'かに座', path: '../../public/images/kani.jpg', rank: 0 },
+  { name: 'みずがめ座', path: '../../public/images/mizugame.jpg', rank: 0 },
+  { name: 'おひつじ座', path: '../../public/images/ohitsuji.jpg', rank: 0 },
+  { name: 'おとめ座', path: '../../public/images/otome.jpg', rank: 0 },
+  { name: 'おうし座', path: '../../public/images/oushi.jpg', rank: 0 },
+  { name: 'さそり座', path: '../../public/images/sasori.jpg', rank: 0 },
+  { name: 'しし座', path: '../../public/images/shishi.jpg', rank: 0 },
+  { name: 'てんびん座', path: '../../public/images/tenbin.jpg', rank: 0 },
+  { name: 'うお座', path: '../../public/images/uo.jpg', rank: 0 },
+  { name: 'やぎ座', path: '../../public/images/yagi.jpg', rank: 0 }
 ])
 
 function shuffle() {
@@ -33,37 +33,41 @@ function shuffle() {
 </script>
 
 <template>
-  <div>
-    <div id="header">
-      <h1>Horoscope Ranking</h1>
+  <div class="p-3 text-center">
+    <div id="header" class="mb-3">
+      <h1>星座ランキング</h1>
     </div>
     <div id="main">
       <p>{{ title }}</p>
     </div>
     <div id="best">
-      <h4>ベスト３</h4>
-      <div>
+      <h4 class="mb-3 bg-success">ベスト３</h4>
+      <div class="mb-3">
         <ul>
           <li v-for="horo in best3" :key="horo.name">
-            <img :src="horo.path" width="90" />{{ horo.name }}:{{ horo.rank }}位
+            <img :src="horo.path" alt="" width="100" />
+            <p>{{ horo.name }}:{{ horo.rank }}位</p>
           </li>
         </ul>
       </div>
     </div>
     <div id="worst">
-      <h4>ワースト３</h4>
-      <ul>
-        <li v-for="horo in worst3" :key="horo.name">
-          <img :src="horo.path" width="90" />{{ horo.name }}:{{ horo.rank }}位
-        </li>
-      </ul>
+      <h4 class="mb-3 bg-danger">ワースト３</h4>
+      <div class="mb-3">
+        <ul>
+          <li v-for="horo in worst3" :key="horo.name">
+            <img :src="horo.path" alt="" width="100" />
+            <p>{{ horo.name }}:{{ horo.rank }}位</p>
+          </li>
+        </ul>
+      </div>
     </div>
-    <button @click="shuffle">シャッフル</button>
+    <button @click="shuffle" class="btn btn-primary">シャッフル</button>
   </div>
 </template>
 
 <style scoped>
 li {
-  display: inline;
+  display: block;
 }
 </style>
