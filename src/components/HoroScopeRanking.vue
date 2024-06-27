@@ -62,7 +62,7 @@ function shuffle() {
         </ul>
       </div>
     </div>
-    <button @click="shuffle" class="btn btn-primary">シャッフル</button>
+    <button @click="shuffle" class="btn btn-primary">占う</button>
   </div>
 </template>
 

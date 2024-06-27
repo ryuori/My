@@ -4,7 +4,7 @@ import BikeView from '@/views/BikeView.vue'
 import NameMake from '@/components/Name_make.vue'
 import BmiCalcurator from '@/components/bmiCalcurator.vue'
 import HoroScopeRanking from '@/components/HoroScopeRanking.vue'
-import MonsterDictionary from '@/components/MonsterDictionary.vue'
+import MonsterDictionary from '@/components/monster-dictionary/MonsterDictionary.vue'
 
 const router = createRouter({
   history: createWebHistory(),

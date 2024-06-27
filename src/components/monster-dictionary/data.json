@@ -1,0 +1,31 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "name": "ふたご座",
+      "HP": "100",
+      "MP": "60",
+      "attack": "40",
+      "defense": "80",
+      "path": "../../public/images/futago.jpg"
+    },
+    {
+      "id": "2",
+      "name": "いて座",
+      "HP": "80",
+      "MP": "30",
+      "attack": "80",
+      "defense": "40",
+      "path": "../../public/images/ite.jpg"
+    },
+    {
+      "id": "3",
+      "name": "かに座",
+      "HP": "120",
+      "MP": "50",
+      "attack": "20",
+      "defense": "90",
+      "path": "../../public/images/kani.jpg"
+    }
+  ]
+}
