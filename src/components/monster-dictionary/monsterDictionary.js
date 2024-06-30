@@ -1,11 +1,16 @@
-const { default: axios } = require('axios')
+import axios from 'axios'
 
-function loadJson() {
+export function loadJson() {
   console.log('load')
 
-  const option = { responseType: 'blob' }
-  axios
-    .get('data.json', option)
-    .then((res) => {})
-    .catch((err) => {})
+  const option = { responseType: 'json' }
+  return axios
+    .get('../../../public/data.json', option)
+    .then((res) => {
+      return res.data.items
+    })
+    .catch((err) => {
+      console.log('データのロードに失敗しました', err)
+      return []
+    })
 }
