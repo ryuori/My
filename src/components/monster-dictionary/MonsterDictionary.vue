@@ -31,42 +31,35 @@ defineExpose({ monsters, selected })
 </script>
 
 <template>
-  <div id="app">
-    <div id="title">
+  <div id="app" class=".container">
+    <div id="title" class="p-3">
       <h1>{{ title }}</h1>
-      <p>{{ message }}</p>
+      <p class="mb-3">{{ message }}</p>
     </div>
-    <div v-if="Object.keys(selected).length === 0">
-      <table>
-        <thead>
+    <div v-if="Object.keys(selected).length === 0" class="mb-3">
+      <table class="table table-striped table-hover">
+        <thead class="table-light">
           <tr>
-            <th width="5%">No</th>
-            <th width="10%">名前</th>
-            <th width="10%">HP</th>
-            <th width="10%">MP</th>
-            <th width="10%">攻撃力</th>
-            <th width="10%">守備力</th>
-            <th width="10%">詳細</th>
+            <th width="10%">No</th>
+            <th width="15%">名前</th>
           </tr>
         </thead>
         <tr v-for="monster in monsters" :key="monster.id">
           <td>{{ monster.id }}</td>
           <td>{{ monster.name }}</td>
-          <td>{{ monster.hp }}</td>
-          <td>{{ monster.mp }}</td>
-          <td>{{ monster.attack }}</td>
-          <td>{{ monster.defense }}</td>
-          <td><button @click="actionSelect(monster.id)">詳細</button></td>
+          <td><button @click="actionSelect(monster.id)" class="btn btn-secondary">詳細</button></td>
         </tr>
       </table>
     </div>
     <div v-else>
-      名前：{{ selected.name }}<br />
-      HP:{{ selected.hp }}<br />
-      MP:{{ selected.mp }}<br />
-      攻撃力:{{ selected.attack }}<br />
-      守備力:{{ selected.defense }}<br />
-      <button @click="resetSelect()">戻る</button>
+      <p>名前：{{ selected.name }}</p>
+      <p>HP:{{ selected.hp }}</p>
+      <p>MP:{{ selected.mp }}</p>
+      <p>攻撃力:{{ selected.attack }}</p>
+      <p>守備力:{{ selected.defense }}</p>
+      <p>通常ドロップ:{{ selected.drop[0] }}</p>
+      <p>レアドロップ:{{ selected.drop[1] }}</p>
+      <button @click="resetSelect()" class="btn btn-secondary">戻る</button>
     </div>
   </div>
 </template>
