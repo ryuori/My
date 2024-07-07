@@ -1,49 +1,57 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
-let id = 0
+let id = 1
+const done = ref(true)
+const appName = ref('Todo Application')
 const monsters = ref([
-  { id: id++, text: '竜王', done: false },
-  { id: id++, text: '魔王シドー', done: false },
-  { id: id++, text: '大魔王ゾーマ', done: false },
-  { id: id++, text: 'デスピサロ', done: false }
+  { id: id++, text: '勉強する', done: true },
+  { id: id++, text: 'ゲームする', done: false },
+  { id: id++, text: '買い物する', done: true },
+  { id: id++, text: 'SEXする', done: false }
 ])
-const newMonster = ref('')
 
-function addMonster() {
-  monsters.value.push({ id: id++, text: newMonster.value, done: false })
-  newMonster.value = ''
+// 完了/未了ボタンの切り替え処理
+function switchTodo() {
+  console.log('switchTodos')
+  done.value = !done.value
 }
-function removeMonster(monster) {
-  monster.done = !monster.done
-  monsters.value = monsters.value.filter(function (t) {
-    return t !== monster
+
+// 完了/未了に応じてフィルタリングして並び替えるcomputedプロパティ
+const getMonsters = computed(() => {
+  const arr = monsters.value.filter((monster) => {
+    return done.value === monster.done
   })
-}
+  arr.sort((a, b) => {
+    return a.id - b.id
+  })
+  return arr
+})
 </script>
 
 <template>
   <div>
-    <div>
-      <h1>ToDo</h1>
-    </div>
-    <div>
-      <input type="text" v-model="newMonster" />
-      <button @click="addMonster">追加</button>
-      <tr v-for="monster in monsters" :key="monster.id">
-        <td>
-          {{ monster.text }}
-          <button @click="removeMonster(monster)">完了</button>
-        </td>
+    <h1>{{ appName }}</h1>
+    <p v-if="done">完了リスト</p>
+    <p v-else>未了リスト</p>
+    <button @click="switchTodo">完了/未了</button>
+  </div>
+  <hr />
+  <div>
+    <table style="width: 100%">
+      <thead>
+        <tr>
+          <th style="width: 10%">番号</th>
+          <th style="width: 10%">状態</th>
+          <th style="width: 80%">内容</th>
+        </tr>
+      </thead>
+      <tr v-for="monster in getMonsters" :key="monster.id">
+        <td>{{ monster.id }}</td>
+        <td v-if="monster.done">完了</td>
+        <td v-else>未了</td>
+        <td>{{ monster.text }}</td>
       </tr>
-    </div>
-    <hr />
-    <button>討伐リスト</button>
-    <div>
-      <p></p>
-      <tr v-for="monster in monsters" :key="monster.id">
-        <td v-if="monster.done">{{ monster.text }}</td>
-      </tr>
-    </div>
+    </table>
   </div>
 </template>
