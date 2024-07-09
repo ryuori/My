@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 
 let id = 1
 const done = ref(true)
+const newMonster = ref('')
 const appName = ref('Todo Application')
 const monsters = ref([
   { id: id++, text: '勉強する', done: true, edit: false },
@@ -42,6 +43,20 @@ function editMonster(id) {
   })
 }
 
+// TODOリストの要素に追加する
+function insertMonster() {
+  console.log('追加')
+  if (newMonster.value.length > 0) {
+    monsters.value.push({
+      id: id++,
+      text: newMonster.value,
+      done: false,
+      edit: false
+    })
+    newMonster.value = '-'
+  }
+}
+
 // 完了/未了に応じてフィルタリングして並び替えるcomputedプロパティ
 const getMonsters = computed(() => {
   const arr = monsters.value.filter((monster) => {
@@ -58,6 +73,19 @@ const getMonsters = computed(() => {
   <div>
     <h1>{{ appName }}</h1>
     <button @click="switchTodo">完了/未了</button>
+  </div>
+  <hr />
+  <div>
+    <thead>
+      <tr>
+        <th style="width: 10%">内容</th>
+        <th style="width: 10%">追加</th>
+      </tr>
+      <tr>
+        <td><input v-model="newMonster" /></td>
+        <td><button @click="insertMonster">追加</button></td>
+      </tr>
+    </thead>
   </div>
   <hr />
   <div>
