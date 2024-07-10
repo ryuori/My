@@ -1,8 +1,8 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 
-let id = 1
-const done = ref(true)
+let id = 0
+const done = ref(false)
 const newMonster = ref('')
 const appName = ref('Todo Application')
 const monsters = ref([
@@ -24,6 +24,7 @@ function changeDone(id) {
   monsters.value.forEach((monster) => {
     if (monster.id == id) monster.done = !monster.done
   })
+  saveMonsters()
 }
 
 // TODOリストの要素を削除する
@@ -32,6 +33,7 @@ function deleteMonster(id) {
   monsters.value = monsters.value.filter((monster) => {
     return monster.id != id
   })
+  saveMonsters()
 }
 
 // TODOリストの要素を編集する
@@ -41,6 +43,12 @@ function editMonster(id) {
     if (monster.id === id) monster.edit = true
     else monster.edit = false
   })
+  monsters.value.forEach((monster) => {
+    if (monster.id !== id) {
+      monster.edit = false
+    }
+  })
+  saveMonsters()
 }
 
 // TODOリストの要素に追加する
@@ -53,7 +61,8 @@ function insertMonster() {
       done: false,
       edit: false
     })
-    newMonster.value = '-'
+    newMonster.value = ''
+    saveMonsters()
   }
 }
 
@@ -67,6 +76,24 @@ const getMonsters = computed(() => {
   })
   return arr
 })
+
+// TODOリストにlocalStorageを読込む
+function loadMonsters() {
+  console.log('loadMonsters')
+  const json = localStorage.getItem('monsters')
+  if (json != null) {
+    monsters.value = JSON.parse(json)
+  }
+}
+
+// localStorageにmonstersを読込む
+function saveMonsters() {
+  console.log('saveMonsters')
+  const json = JSON.stringify(monsters.value)
+  localStorage.setItem('monsters', json)
+}
+
+onMounted(loadMonsters)
 </script>
 
 <template>
@@ -93,8 +120,8 @@ const getMonsters = computed(() => {
       <p v-if="done">完了リスト</p>
       <p v-else>未了リスト</p>
     </div>
-    <table style="width: 100%">
-      <thead>
+    <table style="width: 100%" class="table table-striped table-hover">
+      <thead class="table-light">
         <tr>
           <th style="width: 10%">番号</th>
           <th style="width: 10%">状態</th>
@@ -111,9 +138,9 @@ const getMonsters = computed(() => {
           <span v-if="!monster.edit">{{ monster.text }}</span>
           <input v-else v-model="monster.text" />
         </td>
-        <td><button @click="changeDone(monster.id)">変更</button></td>
-        <td><button @click="deleteMonster(monster.id)">削除</button></td>
-        <td><button @click="editMonster(monster.id)">編集</button></td>
+        <td><button @click="changeDone(monster.id)" class="btn btn-primary">変更</button></td>
+        <td><button @click="deleteMonster(monster.id)" class="btn btn-danger">削除</button></td>
+        <td><button @click="editMonster(monster.id)" class="btn btn-secondary">編集</button></td>
       </tr>
     </table>
   </div>
