@@ -6,6 +6,7 @@ import BmiCalcurator from '@/components/bmiCalcurator.vue'
 import HoroScopeRanking from '@/components/HoroScopeRanking.vue'
 import MonsterDictionary from '@/components/monster-dictionary/MonsterDictionary.vue'
 import ToDoApp from '@/components/todo-app/ToDoApp.vue'
+import MonsterList from '@/components/monster-list/monsterList.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -37,6 +38,10 @@ const router = createRouter({
     {
       path: '/todo',
       component: ToDoApp
+    },
+    {
+      path: '/list',
+      component: MonsterList
     }
   ]
 })
