@@ -1,5 +1,19 @@
-<script setup lang="ts">
-import MonsterList from '@/components/monster-list/monsterList'
+<script setup>
+import { onMounted, ref } from 'vue'
+import { loadJson } from '@/components/monster-list/monsterList'
+
+const monsters = ref([])
+
+onMounted(async () => {
+  try {
+    const data = await loadJson()
+    monsters.value = data
+  } catch (error) {
+    console.log('Error')
+  }
+})
+
+defineExpose({ monsters })
 </script>
 
 <template>
@@ -20,15 +34,15 @@ import MonsterList from '@/components/monster-list/monsterList'
         <th>経験値</th>
         <th>GOLD</th>
       </tr>
-      <tr>
-        <th>1</th>
-        <th>スライム</th>
-        <th>ラダトーム_ロトの洞窟</th>
-        <th>5</th>
-        <th>3</th>
-        <th>10</th>
-        <th>1</th>
-        <th>3</th>
+      <tr v-for="monster in monsters" :key="monster.index">
+        <th>{{ monster.index }}</th>
+        <th>{{ monster.monster }}</th>
+        <th>{{ monster.area }}</th>
+        <th>{{ monster.atk }}</th>
+        <th>{{ monster.def }}</th>
+        <th>{{ monster.hp }}</th>
+        <th>{{ monster.exp }}</th>
+        <th>{{ monster.gold }}</th>
       </tr>
     </table>
   </div>
