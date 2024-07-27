@@ -1,7 +1,4 @@
 <script setup>
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap'
-import 'bootstrap/dist/js/bootstrap.bundle'
 import { RouterLink } from 'vue-router'
 </script>
 

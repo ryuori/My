@@ -36,12 +36,12 @@ function shuffle() {
   <div class="p-3 text-center">
     <div id="header" class="mb-3">
       <h1>星座ランキング</h1>
+      <button @click="shuffle" class="btn btn-primary">占う</button>
     </div>
     <div id="main">
       <p>{{ title }}</p>
     </div>
     <div id="best">
-      <h4 class="mb-3 bg-success">ベスト３</h4>
       <div class="mb-3">
         <ul>
           <li v-for="horo in best3" :key="horo.name">
@@ -52,7 +52,6 @@ function shuffle() {
       </div>
     </div>
     <div id="worst">
-      <h4 class="mb-3 bg-danger">ワースト３</h4>
       <div class="mb-3">
         <ul>
           <li v-for="horo in worst3" :key="horo.name">
@@ -62,7 +61,6 @@ function shuffle() {
         </ul>
       </div>
     </div>
-    <button @click="shuffle" class="btn btn-primary">占う</button>
   </div>
 </template>
 
