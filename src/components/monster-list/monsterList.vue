@@ -4,14 +4,14 @@ import { loadJson } from '@/components/monster-list/monsterList'
 
 const monsters = ref([])
 const total = ref('')
-const results = ref('')
-const m_area = ref('')
-const f_area = ref('')
+const f_area = ref('') //セレクタで選択した値を格納する
+const firstMonsters = ref([])
 
 onMounted(async () => {
   try {
     const data = await loadJson()
     monsters.value = data
+    firstMonsters.value = [...data]
     total.value = data.length
   } catch (error) {
     console.log('Error')
@@ -28,8 +28,9 @@ function sortGold(num) {
 }
 
 function reset() {
-  reset.value = monsters
+  monsters.value = [...firstMonsters.value]
   f_area.value = ''
+  total.value = monsters.value.length
 }
 
 defineExpose({ monsters })
@@ -41,17 +42,13 @@ defineExpose({ monsters })
   </div>
   <div>
     <span>Total: {{ total }}</span>
-    <p>GOLD</p>
-    <button @click="sortGold(-1)">高い順</button>
-    <span> or </span>
-    <button @click="sortGold(1)">安い順</button>
-    <span> : </span>
+    <div>
+      <span>GOLD</span>
+      <button @click="sortGold(-1)">高い順</button>
+      <span> or </span>
+      <button @click="sortGold(1)">安い順</button>
+    </div>
     <button @click="reset()">Reset</button>
-    <span> : </span>
-    <select name="" id="">
-      <option value=""></option>
-      <option value=""></option>
-    </select>
   </div>
   <hr />
   <div>
