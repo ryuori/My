@@ -24,7 +24,7 @@
       <h2 class="section-title">About</h2>
       <div class="content">
         <img src="@/assets/bike-view/about.jpg" alt="" />
-        <h3 class="content-title">小倉龍之介</h3>
+        <h3 class="content-title">あああああ</h3>
         <p>こんにちは</p>
       </div>
     </section>
