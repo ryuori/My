@@ -3,7 +3,7 @@ import { onMounted, ref } from 'vue'
 import { loadJson } from '@/components/monster-dictionary/monsterDictionary'
 
 const title = ref('モンスター図鑑')
-const message = ref('ボタンから詳細を確認することができます')
+const message = ref('詳細ボタンから詳細を確認することができます')
 // モンスターのデータを取得
 const monsters = ref([])
 const selected = ref({})
@@ -40,8 +40,9 @@ defineExpose({ monsters, selected })
       <table class="table table-striped table-hover">
         <thead class="table-light">
           <tr>
-            <th width="10%">No</th>
+            <th width="1%">No</th>
             <th width="15%">名前</th>
+            <th width="5%">詳細</th>
           </tr>
         </thead>
         <tr v-for="monster in monsters" :key="monster.id">
