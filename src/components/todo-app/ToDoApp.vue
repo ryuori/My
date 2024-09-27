@@ -1,7 +1,7 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 
-let id = 0
+let id = 1
 const done = ref(false)
 const newMonster = ref('')
 const appName = ref('Todo Application')
@@ -9,7 +9,7 @@ const monsters = ref([
   { id: id++, text: '勉強する', done: true, edit: false },
   { id: id++, text: 'ゲームする', done: false, edit: false },
   { id: id++, text: '買い物する', done: true, edit: false },
-  { id: id++, text: '仕事', done: false, edit: false }
+  { id: id++, text: 'SEXする', done: false, edit: false }
 ])
 
 // 完了/未了ボタンの切り替え処理

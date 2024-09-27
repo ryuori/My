@@ -31,7 +31,7 @@ defineExpose({ monsters, selected })
 </script>
 
 <template>
-  <div id="app" class=".container">
+  <div id="app" class="container">
     <div id="title" class="p-3">
       <h1>{{ title }}</h1>
       <p class="mb-3">{{ message }}</p>
