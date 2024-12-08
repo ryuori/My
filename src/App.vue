@@ -10,3 +10,4 @@ import { RouterLink } from 'vue-router'
   <RouterLink to="/todo">ToDo</RouterLink> | <RouterLink to="/list">List</RouterLink>
   <RouterView />
 </template>
+
