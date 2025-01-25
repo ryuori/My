@@ -11,7 +11,7 @@ interface DataItem{
 }
 
 interface DataResponse{
-    items: DataItem
+    items: DataItem[]
 }
 
 export async function loadJson(): Promise<DataItem[]> {

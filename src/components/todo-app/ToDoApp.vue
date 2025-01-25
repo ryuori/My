@@ -9,7 +9,7 @@ const monsters = ref([
   { id: id++, text: '勉強する', done: true, edit: false },
   { id: id++, text: 'ゲームする', done: false, edit: false },
   { id: id++, text: '買い物する', done: true, edit: false },
-  { id: id++, text: 'SEXする', done: false, edit: false }
+  { id: id++, text: '仕事をする', done: false, edit: false }
 ])
 
 // 完了/未了ボタンの切り替え処理
