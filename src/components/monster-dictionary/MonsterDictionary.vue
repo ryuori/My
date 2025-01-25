@@ -13,7 +13,7 @@ onMounted(async () => {
     const data = await loadJson()
     monsters.value = data
   } catch (error) {
-    console.log('Error')
+    console.error('Error', error.message)
   }
 })
 
