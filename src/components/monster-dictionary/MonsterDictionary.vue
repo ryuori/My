@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue'
-import { loadJson } from '@/components/monster-dictionary/monsterDictionary'
+import { loadJson } from '@/components/monster-dictionary/monsterDictionary.ts'
 
 const title = ref('モンスター図鑑')
 const message = ref('詳細ボタンから詳細を確認することができます')
