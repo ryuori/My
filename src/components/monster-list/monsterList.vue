@@ -14,7 +14,7 @@ onMounted(async () => {
     firstMonsters.value = [...data]
     total.value = data.length
   } catch (error) {
-    console.log('Error')
+    console.error('Error',error)
   }
 })
 
