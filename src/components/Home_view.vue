@@ -1,9 +1,9 @@
 <script setup>
 import ClockView from '@/components/clock_view.vue'
-import MarkdownEditor from './markdown-editor/MarkdownEditor.vue'
+import BikeView from '../views/BikeView.vue';
 </script>
 
 <template>
   <clock-view /> <br />
-  <markdown-editor />
+  <Bike-view />
 </template>
